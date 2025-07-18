@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IT Learning Hub</title>
+    <link rel="stylesheet" href="assets/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        background: #f9f9f9;
+        color: #333;
+      }
+
+      header {
+        background-color: #2c3e50;
+        color: white;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      header h1 {
+        margin: 0;
+      }
+
+      header a {
+        color: #ecf0f1;
+        text-decoration: none;
+      }
+
+      nav {
+        background: #34495e;
+        padding: 0.5rem 2rem;
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      nav a:hover {
+        text-decoration: underline;
+      }
+
+      .filters {
+        padding: 1rem 2rem;
+        background: #fff;
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      input[type="text"],
+      select {
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+      }
+
+      #all-courses {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1rem;
+        padding: 2rem;
+      }
+
+      .course {
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 1rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        transition: transform 0.2s ease;
+      }
+
+      .course:hover {
+        transform: translateY(-5px);
+      }
+
+      .course h3 {
+        margin-top: 0;
+      }
+
+      .course ul {
+        padding-left: 1.2rem;
+      }
+
+      @media (max-width: 600px) {
+        .filters {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>📚 IT Courses</h1>
+      <a href="index.html">← Back to Home</a>
+    </header>
+
+    <!-- Navigation Categories -->
+    <nav>
+      <a href="#" onclick="filterCategory('All')">All</a>
+      <a href="#" onclick="filterCategory('Programming')">Programming</a>
+      <a href="#" onclick="filterCategory('Networking')">Networking</a>
+      <a href="#" onclick="filterCategory('Web Development')"
+        >Web Development</a
+      >
+      <a href="#" onclick="filterCategory('Cybersecurity')">Cybersecurity</a>
+      <a href="#" onclick="filterCategory('Database Management')">Database</a>
+    </nav>
+
+    <!-- Filters -->
+    <div class="filters">
+      <input type="text" id="search" placeholder="🔍 Search courses..." />
+      <label for="category-filter">📂 Filter by Category:</label>
+      <select id="category-filter">
+        <option value="All">All</option>
+      </select>
+    </div>
+
+    <section id="all-courses"></section>
+
+    <script>
+      let allCourses = [];
+
+      // Load courses
+      fetch("data/courses.json")
+        .then((response) => response.json())
+        .then((data) => {
+          allCourses = data;
+          populateCategories(data);
+          displayCourses(data);
+        });
+
+      // Display courses
+      function displayCourses(courses) {
+        const container = document.getElementById("all-courses");
+        container.innerHTML = "";
+
+        courses.forEach((course) => {
+          const div = document.createElement("div");
+          div.className = "course";
+          div.innerHTML = `
+            <h3>${course.title}</h3>
+            <small><strong>Category:</strong> ${course.category}</small><br>
+            <small><strong>Level:</strong> ${
+              course.level || "Beginner"
+            }</small><br>
+            <small><strong>Duration:</strong> ${
+              course.duration || "1-2 weeks"
+            }</small>
+            <ul>
+              ${course.resources
+                .map(
+                  (r) =>
+                    `<li><a href="${r.url}" target="_blank">${r.name}</a></li>`
+                )
+                .join("")}
+            </ul>
+          `;
+          container.appendChild(div);
+        });
+      }
+
+      // Populate dropdown filter
+      function populateCategories(data) {
+        const categories = [...new Set(data.map((course) => course.category))];
+        const select = document.getElementById("category-filter");
+        categories.forEach((cat) => {
+          const option = document.createElement("option");
+          option.value = cat;
+          option.textContent = cat;
+          select.appendChild(option);
+        });
+
+        select.addEventListener("change", filterCourses);
+      }
+
+      // Search input
+      document
+        .getElementById("search")
+        .addEventListener("input", filterCourses);
+
+      // Filter logic
+      function filterCourses() {
+        const keyword = document.getElementById("search").value.toLowerCase();
+        const selectedCategory =
+          document.getElementById("category-filter").value;
+
+        const filtered = allCourses.filter((course) => {
+          const matchesKeyword = course.title.toLowerCase().includes(keyword);
+          const matchesCategory =
+            selectedCategory === "All" || course.category === selectedCategory;
+          return matchesKeyword && matchesCategory;
+        });
+
+        displayCourses(filtered);
+      }
+
+      // Top nav category filter
+      function filterCategory(category) {
+        document.getElementById("category-filter").value = category;
+        filterCourses();
+      }
+    </script>
+  </body>
+</html>

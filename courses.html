@@ -139,7 +139,7 @@
       let allCourses = [];
 
       // Load courses
-      fetch("data/courses.json")
+      fetch("./courses.json")
         .then((response) => response.json())
         .then((data) => {
           allCourses = data;

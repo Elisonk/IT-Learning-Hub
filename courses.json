@@ -1,0 +1,157 @@
+[
+  {
+    "title": "Python",
+    "category": "Programming",
+    "difficulty": "Beginner",
+    "duration": "4 weeks",
+    "resources": [
+      {
+        "name": "W3Schools Python",
+        "url": "https://www.w3schools.com/python/"
+      },
+      {
+        "name": "YouTube: Python Crash Course",
+        "url": "https://youtu.be/kqtD5dpn9C8"
+      },
+      {
+        "name": "GeeksforGeeks Python",
+        "url": "https://www.geeksforgeeks.org/python-programming-language/"
+      }
+    ]
+  },
+  {
+    "title": "C",
+    "category": "Programming",
+    "difficulty": "Beginner",
+    "duration": "4 weeks ",
+    "resources": [
+      { "name": "W3Schools C", "url": "https://www.w3schools.com/c/" },
+      {
+        "name": "YouTube: C Programming Full Course",
+        "url": "https://youtu.be/8PopR3x-VMY"
+      },
+      {
+        "name": "GeeksforGeeks C",
+        "url": "https://www.geeksforgeeks.org/c-programming-language/"
+      }
+    ]
+  },
+  {
+    "title": "C++",
+    "category": "Programming",
+    "difficulty": "Beginner",
+    "duration": "3-5 weeks",
+    "resources": [
+      { "name": "W3Schools C++", "url": "https://www.w3schools.com/cpp/" },
+      {
+        "name": "YouTube: C++ Full Course",
+        "url": "https://youtu.be/vLnPwxZdW4Y"
+      },
+      {
+        "name": "GeeksforGeeks C++",
+        "url": "https://www.geeksforgeeks.org/c-plus-plus/"
+      }
+    ]
+  },
+  {
+    "title": "Java",
+    "category": "Programming",
+    "difficulty": "Beginner",
+    "duration": "3-5 weeks",
+    "resources": [
+      { "name": "W3Schools Java", "url": "https://www.w3schools.com/java/" },
+      {
+        "name": "YouTube: Java Full Course",
+        "url": "https://youtu.be/rV_3Lewxx6o"
+      },
+      {
+        "name": "GeeksforGeeks Java",
+        "url": "https://www.geeksforgeeks.org/java/"
+      }
+    ]
+  },
+  {
+    "title": "C#",
+    "category": "Programming",
+    "difficulty": "Beginner",
+    "duration": "3-4 weeks",
+    "resources": [
+      { "name": "W3Schools C#", "url": "https://www.w3schools.com/cs/" },
+      {
+        "name": "YouTube: C# Full Course",
+        "url": "https://youtu.be/GhQdlIFylQ8"
+      },
+      {
+        "name": "GeeksforGeeks C#",
+        "url": "https://www.geeksforgeeks.org/c-sharp-programming-language/"
+      }
+    ]
+  },
+  {
+    "title": "Web Development",
+    "category": "Web Development",
+    "difficulty": "Beginner",
+    "duration": "6-8 weeks",
+    "resources": [
+      {
+        "name": "W3Schools Web Dev",
+        "url": "https://www.w3schools.com/whatis/"
+      },
+      {
+        "name": "YouTube: Full Web Dev Course",
+        "url": "https://youtu.be/zJSY8tbf_ys"
+      },
+      {
+        "name": "GeeksforGeeks Web Dev",
+        "url": "https://www.geeksforgeeks.org/web-development/"
+      }
+    ]
+  },
+  {
+    "title": "Computer Networking",
+    "category": "Networking",
+    "difficulty": "Beginner",
+    "duration": "4-6 weeks",
+    "resources": [
+      {
+        "name": "YouTube: Networking Basics",
+        "url": "https://youtu.be/qiQR5rTSshw"
+      },
+      {
+        "name": "GeeksforGeeks Networking",
+        "url": "https://www.geeksforgeeks.org/computer-network-tutorials/"
+      }
+    ]
+  },
+  {
+    "title": "Cybersecurity",
+    "category": "Cybersecurity",
+    "difficulty": "Beginner",
+    "duration": "4-6 weeks",
+    "resources": [
+      {
+        "name": "YouTube: Cybersecurity Basics",
+        "url": "https://youtu.be/mbnR2IrI4MU"
+      },
+      {
+        "name": "GeeksforGeeks Cybersecurity",
+        "url": "https://www.geeksforgeeks.org/cyber-security/"
+      }
+    ]
+  },
+  {
+    "title": "Database Management",
+    "category": "Database Management",
+    "resources": [
+      { "name": "W3Schools SQL", "url": "https://www.w3schools.com/sql/" },
+      {
+        "name": "YouTube: SQL Tutorial",
+        "url": "https://youtu.be/7S_tz1z_5bA"
+      },
+      {
+        "name": "GeeksforGeeks DBMS",
+        "url": "https://www.geeksforgeeks.org/dbms/"
+      }
+    ]
+  }
+]

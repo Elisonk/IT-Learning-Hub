@@ -28,3 +28,22 @@ input {
 .course li {
   margin-bottom: 5px;
 }
+/* Default (desktop) */
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+}
+
+/* Phone */
+@media (max-width: 480px) {
+  .container {
+    font-size: 14px;
+  }
+}

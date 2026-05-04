@@ -1,182 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IT Learning Hub</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./styles.css" />
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Poppins", sans-serif;
-      }
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel ="stylesheet" href="./styles.css" />
+</head>
 
-      body,
-      html {
-        height: 100%;
-        width: 100%;
-        overflow: hidden;
-      }
+<body>
 
-      .slideshow-background {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-      }
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="logo">💡 IT Hub</div>
+        <nav class="nav-links">
+            <a href="#">Home</a>
+            <a href="courses.html">Courses</a>
+            <a href="about.html">About</a>
+            <a href="#">Submit</a>
+        </nav>
+    </header>
 
-      .slide-bg {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-        background-position: center;
-        opacity: 0;
-        transition: opacity 1s ease-in-out;
-      }
-
-      .slide-bg.active {
-        opacity: 1;
-      }
-
-      .overlay {
-        position: relative;
-        z-index: 2;
-        color: white;
-        text-align: center;
-        padding-top: 20vh;
-        padding-left: 10%;
-        padding-right: 10%;
-      }
-
-      h1 {
-        font-size: 3em;
-        font-weight: 600;
-        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-      }
-
-      .motivation {
-        margin-top: 1em;
-        font-size: 1.5em;
-        font-weight: 400;
-        animation: fadeIn 1s ease-in-out;
-        text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6);
-      }
-
-      nav {
-        margin-top: 2em;
-      }
-
-      nav a {
-        background-color: rgba(0, 0, 0, 0.5);
-        padding: 0.8em 1.5em;
-        border-radius: 8px;
-        color: #fff;
-        margin: 0 0.5em;
-        text-decoration: none;
-        font-weight: 500;
-        transition: background 0.3s;
-      }
-
-      nav a:hover {
-        background-color: rgba(255, 255, 255, 0.2);
-      }
-
-      .get-started {
-        margin-top: 2em;
-        display: inline-block;
-        padding: 0.9em 2em;
-        background-color: #00b894;
-        color: #fff;
-        font-weight: 600;
-        border: none;
-        border-radius: 8px;
-        text-decoration: none;
-        font-size: 1.1em;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        transition: background 0.3s ease;
-      }
-
-      .get-started:hover {
-        background-color: #019174;
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
-
-      @media (max-width: 768px) {
-        h1 {
-          font-size: 2em;
-        }
-        .motivation {
-          font-size: 1em;
-        }
-      }
-    </style>
-  </head>
-  <body>
+    <!-- BACKGROUND -->
     <div class="slideshow-background">
-      <div class="slide-bg slide-bg-1 active"></div>
-      <div class="slide-bg slide-bg-2"></div>
-      <div class="slide-bg slide-bg-3"></div>
-      <div class="slide-bg slide-bg-4"></div>
+        <div class="slide-bg slide-bg-1 active"></div>
+        <div class="slide-bg slide-bg-2"></div>
+        <div class="slide-bg slide-bg-3"></div>
+        <div class="slide-bg slide-bg-4"></div>
     </div>
 
-    <div class="overlay">
-      <h1>📚 IT Learning Hub</h1>
-      <div class="motivation" id="motivationText">
-        🚀 Start your tech journey today—every expert was once a beginner.
-      </div>
-      <nav>
-        <a href="courses.html">All Courses</a>
-        <a href="./submit.html">Suggest a Resource</a>
-      </nav>
-      <a href="courses.html" class="get-started">Get Started</a>
-    </div>
+    <!-- HERO -->
+    <section class="overlay">
+        <h1>📚 IT Learning Hub</h1>
 
-    <script>
-      // Slideshow rotation
-      const slides = document.querySelectorAll(".slide-bg");
-      let currentSlide = 0;
+        <!-- TYPING TEXT -->
+        <div class="motivation">
+            <span id="typingText"></span><span class="cursor">|</span>
+        </div>
 
-      function showNextSlide() {
-        slides[currentSlide].classList.remove("active");
-        currentSlide = (currentSlide + 1) % slides.length;
-        slides[currentSlide].classList.add("active");
-      }
+        <a href="courses.html" class="get-started">Get Started</a>
+    </section>
 
-      setInterval(showNextSlide, 5000); // Change every 5 seconds
+    <!-- COURSE CARDS -->
+    <section class="courses-section">
+        <h2>🔥 Popular Courses</h2>
 
-      // Motivation text rotator
-      const motivationTexts = [
-        "🚀 Start your tech journey today—every expert was once a beginner.",
-        "💻 Code your future, one line at a time.",
-        "🎯 Learning IT is your gateway to opportunity.",
-        "📈 Build your skills, shape your destiny.",
-        "🌐 The world needs your ideas—start creating now.",
-      ];
+        <div class="courses-container">
 
-      let textIndex = 0;
-      const textElement = document.getElementById("motivationText");
+            <div class="course-card">
+                <h3>💻 Web Development</h3>
+                <p>Learn HTML, CSS, JavaScript and build real websites.</p>
+            </div>
 
-      setInterval(() => {
-        textIndex = (textIndex + 1) % motivationTexts.length;
-        textElement.textContent = motivationTexts[textIndex];
-      }, 6000);
-    </script>
-  </body>
+            <div class="course-card">
+                <h3>🐍 Python Programming</h3>
+                <p>Start coding with Python for AI, data science and more.</p>
+            </div>
+
+            <div class="course-card">
+                <h3>🛢 Databases</h3>
+                <p>Master SQL and database design concepts.</p>
+            </div>
+
+            <div class="course-card">
+                <h3>🔐 Cybersecurity</h3>
+                <p>Learn ethical hacking and system protection basics.</p>
+            </div>
+
+        </div>
+        </section>
+
+        <script>
+            // SLIDESHOW
+            const slides = document.querySelectorAll(".slide-bg");
+            let currentSlide = 0;
+
+            setInterval(() => {
+                slides[currentSlide].classList.remove("active");
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add("active");
+            }, 5000);
+
+
+            // TYPING EFFECT
+            const texts = [
+                "🚀 Start your tech journey today...",
+                "💻 Code your future, one line at a time.",
+                "🎯 Learning IT is your gateway to opportunities.",
+                "📈 Build your skills, shape your destiny.",
+                "🌐 The world needs your ideas—start creating now."
+            ];
+
+            let index = 0;
+            let charIndex = 0;
+            const typingElement = document.getElementById("typingText");
+
+            function typeEffect() {
+                if (charIndex < texts[index].length) {
+                    typingElement.textContent += texts[index].charAt(charIndex);
+                    charIndex++;
+                    setTimeout(typeEffect, 50);
+                } else {
+                    setTimeout(eraseEffect, 2000);
+                }
+            }
+
+            function eraseEffect() {
+                if (charIndex > 0) {
+                    typingElement.textContent = texts[index].substring(0, charIndex - 1);
+                    charIndex--;
+                    setTimeout(eraseEffect, 30);
+                } else {
+                    index = (index + 1) % texts.length;
+                    setTimeout(typeEffect, 500);
+                }
+            }
+
+            typeEffect();
+         </script>
+</body>
+
 </html>

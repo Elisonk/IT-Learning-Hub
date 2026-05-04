@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - IT Learning Hub</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel ="stylesheet" href="./styles.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: white;
+            min-height: 100vh;
+        }
+
+        /* ===== NAVBAR ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1em 2em;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background: rgba(0, 0, 0, 0.4);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+        }
+
+        header h1 {
+            font-size: 1.3em;
+        }
+
+        header a {
+            color: #00cec9;
+            text-decoration: none;
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .container {
+            max-width: 1000px;
+            margin: 120px auto 40px;
+            padding: 2rem;
+
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        h2 {
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        p {
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        /* ===== SECTIONS ===== */
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        /* ===== TEAM ===== */
+        .team {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .member {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .member:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .member h4 {
+            margin-top: 0.5rem;
+        }
+
+        /* ===== MOBILE ===== */
+        @media (max-width: 768px) {
+            .container {
+                margin: 100px 1rem 30px;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <h1>📚 IT Learning Hub</h1>
+        <a href="index.html" class="get-started">← Back to Home</a>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+
+        <!-- ABOUT -->
+        <div class="section">
+            <h2>About Us</h2>
+            <p>
+                IT Learning Hub is a platform designed to help students and aspiring developers
+                access high-quality learning resources in one place. Whether you're a beginner
+                or advancing your skills, we provide curated courses across multiple IT fields.
+            </p>
+            <p>
+                Our goal is to make learning technology simple, accessible, and practical.
+                We believe that everyone should have the opportunity to build skills that
+                can shape their future.
+            </p>
+        </div>
+
+        <!-- MISSION -->
+        <div class="section">
+            <h2>Our Mission</h2>
+            <p>
+                To empower learners by providing structured, easy-to-access, and relevant
+                IT learning resources that bridge the gap between theory and real-world skills.
+            </p>
+        </div>
+
+        <!-- VISION -->
+        <div class="section">
+            <h2>Our Vision</h2>
+            <p>
+                To become a leading platform where learners can discover, learn, and grow
+                in the world of technology.
+            </p>
+        </div>
+
+        <!-- TEAM -->
+        <div class="section">
+            <h2>Our Team</h2>
+
+            <div class="team">
+
+                <div class="member">
+                    <h4>👨‍💻 Developer</h4>
+                    <p>Frontend & Backend</p>
+                </div>
+
+                <div class="member">
+                    <h4>🎨 Designer</h4>
+                    <p>UI/UX Design</p>
+                </div>
+
+                <div class="member">
+                    <h4>📚 Content Curator</h4>
+                    <p>Course Research</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

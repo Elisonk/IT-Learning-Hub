@@ -1,49 +1,486 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.301);
-  width: 100%;
-  margin: auto;
-  overflow: scroll;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.301);
+    width: 100%;
+    margin: auto;
+    overflow: scroll; }
+
+body,
+html {
+    height: 100%;
+    width: 100%;
+    overflow: online;
 }
 
+/* Background slideshow */
+.slideshow-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+.slide-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transform: scale(1.05);
+    transition: opacity 1.5s ease-in-out, transform 6s ease;
+}
+
+.slide-bg.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* DARK OVERLAY */
+.slideshow-background::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right,
+            rgba(0, 0, 0, 0.7),
+            rgba(0, 0, 0, 0.4));
+}
+
+/* MAIN HERO SECTION */
+.overlay {
+    position: relative;
+    z-index: 2;
+    color: white;
+    text-align: center;
+
+    height: 100vh;
+    padding: 0 5%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 1rem;
+    /* adds spacing between elements */
+}
+
+/* Better text scaling */
+.overlay h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+.overlay p,
+.overlay .motivation {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    max-width: 800px;
+}
+
+/* Glass card effect */
+.overlay > * {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+/* Title */
 h1 {
-  text-align: center;
+    font-size: 3.2em;
+    font-weight: 600;
+    margin-bottom: 0.5em;
+    animation: slideDown 1s ease;
 }
+
+/* Motivation text */
+.motivation {
+    font-size: 1.4em;
+    margin-bottom: 1.5em;
+    opacity: 0.9;
+    animation: fadeIn 2s ease;
+}
+
+/* Navigation */
+nav {
+    margin-bottom: 1em;
+}
+
+nav a {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.7em 1.4em;
+    border-radius: 30px;
+    color: #fff;
+    margin: 0 0.4em;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+nav a:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-3px);
+}
+
+/* Get started button */
+.get-started {
+    padding: 1em 2.5em;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2));
+    color: #fff;
+    font-weight: 600;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 1.1em;
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.get-started:hover {
+    transform: scale(1.08);
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+}
+
+/* NAVBAR */
+.navbar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    align-items: center;
+    z-index: 1000;
+
+    background: rgba(0, 0, 0, 0.4);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #fff;
+}
+
+.nav-links a {
+    color: #fff;
+    margin-left: 1.5em;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #00cec9;
+}
+
+/* HERO FIX (space below navbar) */
+.overlay {
+    padding-top: auto;
+
+}
+
+/* ===== FILTER BAR ===== */
+.filters {
+    margin: 20px auto;
+    padding: 1rem 1.5rem;
+
+    max-width: 1000px;
+    width: 90%;
+
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+
+    border-radius: 15px;
+
+    background: rgba(255, 255, 255, 0.08);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* ===== INPUT FIELD ===== */
 input {
-  width: 100%;
-  padding: 10px;
-  margin: 20px 0;
-  font-size: 16px;
+    flex: 1;
+    min-width: 220px;
+
+    padding: 12px 15px;
+    font-size: 15px;
+
+    border-radius: 12px;
+    border: none;
+    outline: none;
+
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+
+    transition: 0.3s;
 }
 
+/* Placeholder */
+input::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+/* Focus effect */
+input:focus {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 12px rgba(0, 206, 201, 0.6);
+}
+
+/* ===== SELECT DROPDOWN ===== */
+select {
+    padding: 12px;
+    border-radius: 15px;
+    outline: none;
+
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(0, 0, 0, 0.4);;
+
+    min-width: 180px;
+}
+
+/* Hover effect */
+select:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Focus effect */
+select:focus {
+    box-shadow: 0 0 10px rgba(0, 206, 201, 0.6); }
+
+/* ===== LABEL ===== */
+.filters label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+    .filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    input,
+    select {
+        width: 100%;
+    }
+}
+
+/* ===== COURSE GRID ===== */
+#all-courses {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+/* ===== COURSE CARD ===== */
+.course {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 15px;
+    padding: 1.5rem;
+
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+
+    color: #450b74; }
+
+.course::after {
+    content: "Popular";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #00b894;
+    padding: 3px 8px;
+    font-size: 12px;
+    border-radius: 5px; }
+
+/* subtle glow effect */
+.course::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+    opacity: 0;
+    transition: 0.4s;
+}
+
+/* hover effect */
+.course:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
+
+.course:hover::before {
+    opacity: 1;
+}
+
+/* ===== TEXT ===== */
 .course h3 {
-  margin-bottom: 10px;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
 }
 
+.course small {
+    display: block;
+    margin-bottom: 0.3rem;
+    opacity: 0.8;
+}
+
+/* ===== LIST ===== */
 .course ul {
-  padding-left: 20px;
+    margin-top: 0.8rem;
+    padding-left: 1.2rem;
 }
 
 .course li {
-  margin-bottom: 5px;
-}
-/* Default (desktop) */
-.container {
-  display: flex;
-  flex-direction: row;
+    margin-bottom: 6px;
 }
 
-/* Tablet */
+/* ===== LINKS ===== */
+/* Allow clicks to pass through overlays */
+.course::before,
+.course::after {
+    pointer-events: none;
+}
+.course a {
+    color: #2a918f;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-block;
+    margin-top: 5px;
+    transition: 0.2s;
+}
+
+.course a:hover {
+    color: #00fff2;
+    transform: translateX(3px); }
+
+/* =========================
+   GLOBAL RESPONSIVE FIXES
+========================= */
+
+/* Make everything scale properly */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Prevent horizontal scroll */
+body {
+    overflow-x: hidden;
+}
+
+/* =========================
+   NAVBAR (MOBILE)
+========================= */
 @media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-  }
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    header h1 {
+        font-size: 1.2em;
+    }
+
+    header a {
+        font-size: 0.9em;
+    }
 }
 
-/* Phone */
-@media (max-width: 480px) {
-  .container {
-    font-size: 14px;
-  }
+/* =========================
+   CATEGORY NAV
+========================= */
+@media (max-width: 768px) {
+    nav {
+        justify-content: center;
+        gap: 0.5em;
+        padding: 1em;
+    }
+
+    nav a {
+        font-size: 0.85em;
+        padding: 0.4em 0.8em;
+    }
+}
+
+/* =========================
+   FILTERS (STACK ON MOBILE)
+========================= */
+@media (max-width: 768px) {
+    .filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    input,
+    select {
+        width: 100%;
+    }
+}
+
+/* =========================
+   COURSE GRID RESPONSIVENESS
+========================= */
+
+/* Large screens */
+@media (min-width: 1200px) {
+    #all-courses {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+    #all-courses {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Small phones */
+@media (max-width: 576px) {
+    #all-courses {
+        grid-template-columns: 1fr;
+    }
+
+    .course {
+        padding: 1.2rem;
+    }
+}
+
+/* =========================
+   TEXT SCALING
+========================= */
+@media (max-width: 768px) {
+    .course h3 {
+        font-size: 1.1rem;
+    }
+
+    body {
+        font-size: 14px;
+    }
 }
